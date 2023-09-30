@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  overflow: hidden;
+  color: white;
+}
+#diagram {
+  margin-top: -100px;
+  flex: 1;
+  height: calc(100vh + 100px);
+}
+.description {
+  display: flex;
+  width: 50vw;
+  transition: width 0.4s ease;
+  align-items: center;
+}
+#diagram,
+.description {
+  background-color: #101140;
+}
+.description__content__wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 80px 10px 20px;
+}
+.description__file-name {
+  margin-bottom: 20px;
+}
+.description__to-right {
+  font-size: 3em;
+  width: 1em;
+  cursor: pointer;
+}
+.description__to-right:hover {
+  color: yellow;
+}
+.description__content {
+  min-width: 100px;
+}
+
+.hide {
+  width: 0;
+}
