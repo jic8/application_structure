@@ -1,30 +1,65 @@
-import { COLOR_MODELS, COLOR_PAGE } from "./vars.js";
+import { COLOR_MODELS, COLOR_PAGE, COLOR_SUB_MODELS } from "./vars.js";
 
 // определение массива элементов и связей между ними
 const nodeDataArray = [
   {
     key: "App.py",
     description:
-      "Основной файл<br> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque harum dignissimos quis ad officiis eaque voluptates odit soluta, unde nobis ut iste accusamus distinctio aliquam consequatur iure voluptas enim nisi.",
+      `
+      Основной файл<br> Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+      Cumque harum dignissimos quis ad officiis eaque voluptates odit soluta, unde 
+      nobis ut iste accusamus distinctio aliquam consequatur iure voluptas enim nisi
+      `,
     color: COLOR_MODELS,
   },
   { key: "config.py", color: COLOR_MODELS },
   { key: "database.py", color: COLOR_MODELS },
-  { key: "date_recovery.py", color: COLOR_MODELS },
-  { key: "delayedexecution.py", color: COLOR_MODELS },
+  { key: "vmachine.py.py", color: COLOR_MODELS },
+  { key: "htmlpy_core", color: COLOR_SUB_MODELS },
   { key: "operation_scenario.py", color: COLOR_MODELS },
-  { key: "page_info.py", color: COLOR_PAGE },
-  { key: "page_input_sum.py", color: COLOR_PAGE },
+  { key: "Objects", color: COLOR_MODELS },
+  { key: "Page", color: COLOR_MODELS },
+  { key: "buffer_zone.py", color: COLOR_MODELS },
+  { key: "calendarEvents.py", color: COLOR_MODELS },
+  { key: "date_recovery.py", color: COLOR_MODELS },
+  { key: "email_notifier.py", color: COLOR_MODELS },
+  { key: "gates.py", color: COLOR_MODELS },
+  { key: "lotos_carwash_service.py", color: COLOR_MODELS },
+  // page
+  { key: "page_add_phone_in_card.py", color: COLOR_PAGE },
+  { key: "page_administrator_menu.py", color: COLOR_PAGE },
+  { key: "page_admin_check_printing.py", color: COLOR_PAGE },
+  { key: "page_bank_pincode.py ", color: COLOR_PAGE },
+  { key: "page_bill_dispenser_failed.py ", color: COLOR_PAGE },
+  { key: "page_bill_dispenser_take_change.py ", color: COLOR_PAGE },
+  { key: "page_birthday_input.py ", color: COLOR_PAGE },
+  { key: "page_card_balance.py ", color: COLOR_PAGE },
+  { key: "page_card_close.py ", color: COLOR_PAGE },
+  { key: "page_change_card.py ", color: COLOR_PAGE },
+  { key: "page_check_printing.py ", color: COLOR_PAGE },
+  { key: "page_company_reports.py ", color: COLOR_PAGE },
+  { key: "page_error.py ", color: COLOR_PAGE },
+  { key: "page_error_bill_acceptor.py ", color: COLOR_PAGE },
+  { key: "page_error_phone_is_binded.py ", color: COLOR_PAGE },
+  { key: "page_error_with_timer.py ", color: COLOR_PAGE },
+  { key: "page_exchange.py ", color: COLOR_PAGE },
+  { key: "page_info.py ", color: COLOR_PAGE },
+  
 ];
 
 const linkDataArray = [
   { from: "App.py", to: "config.py" },
   { from: "config.py", to: "database.py" },
-  { from: "database.py", to: "date_recovery.py" },
-  { from: "date_recovery.py", to: "delayedexecution.py" },
-  { from: "delayedexecution.py", to: "operation_scenario.py" },
-  { from: "operation_scenario.py", to: "page_info.py" },
-  { from: "operation_scenario.py", to: "page_input_sum.py" },
+  { from: "database.py", to: "htmlpy_core" },
+  { from: "htmlpy_core", to: "vmachine.py" },
+  { from: "vmachine.py", to: "Objects" },
+  { from: "vmachine.py", to: "Page" },
+  { from: "Objects", to: "buffer_zone.py" },
+  { from: "buffer_zone.py", to: "calendarEvents.py" },
+  { from: "calendarEvents.py", to: "date_recovery.py" },
+  { from: "date_recovery.py", to: "email_notifier.py" },
+  { from: "email_notifier.py", to: "lotos_carwash_service.py" },
+  { from: "lotos_carwash_service.py", to: "operation_scenario.py" }
 ];
 
 export default [nodeDataArray, linkDataArray];
