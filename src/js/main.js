@@ -2,10 +2,18 @@ import dataBase from "./dataBase.js";
 import { COLOR_TEXT, COLOR_ARROW } from "./vars.js";
 
 const [nodeDataArray, linkDataArray] = dataBase;
+// Пояснительная бригада
+const aside = document.querySelector("aside.description");
+const title = aside.querySelector(".description__file-name");
+const description = aside.querySelector(".description__content");
+const closeButton = aside.querySelector(".description__to-right");
+
+closeButton.addEventListener("click", () => aside.classList.add("hide"));
 
 // создание диаграммы
 const $ = go.GraphObject.make;
 const diagram = new go.Diagram("diagram", {
+	padding: new go.Margin(200, 30),
   "draggingTool.dragsTree": true,
   "commandHandler.deletesTree": true,
   layout: $(go.TreeLayout, {
@@ -13,6 +21,8 @@ const diagram = new go.Diagram("diagram", {
     arrangement: go.TreeLayout.ArrangementFixedRoots,
   }),
   "undoManager.isEnabled": true,
+   // Настройте инструменты для управления зумом
+	"toolManager.mouseWheelBehavior": go.ToolManager.WheelZoom,
 });
 
 // определение шаблона для элементов
@@ -51,11 +61,3 @@ diagram.addDiagramListener("ObjectSingleClicked", (e) => {
     description.innerHTML = part.data.description;
   }
 });
-
-// Пояснительная бригада
-const aside = document.querySelector("aside.description");
-const title = aside.querySelector(".description__file-name");
-const description = aside.querySelector(".description__content");
-const closeButton = aside.querySelector(".description__to-right");
-
-closeButton.addEventListener("click", () => aside.classList.add("hide"));
